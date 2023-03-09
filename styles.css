@@ -1,0 +1,20 @@
+html {
+    scroll-behavior: smooth;
+}
+ 
+body,
+input {
+    background: radial-gradient(circle, rgb(75, 75, 75) 0%, rgb(0, 0, 0) 100%);
+    color: rgb(255, 255, 255);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+main {
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+}
