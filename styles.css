@@ -23,7 +23,10 @@ main {
 
 #header {
     margin: 0;
-    padding: 16px;
+    padding-bottom: 64px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 32px;
 }
 
 h1 {
@@ -34,20 +37,55 @@ h1 {
 }
 
 h1,
+#body,
+#options,
 #footer {
     align-items: center;
     display: flex;
     justify-content: center;
 }
 
+#body {
+    flex-direction: column;
+}
+
+#body {
+    gap: 91px;
+}
+
+#etch-a-sketch-container {
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 5px;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0), 0px 0px 20px rgb(0, 0, 0), 0px 0px 30px rgb(0, 0, 0), 0px 0px 40px rgb(0, 0, 0);
+    height: 900px;
+    max-height: 900px;
+    max-width: 900px;
+    width: 900px;
+}
+
+#options {
+
+}
+
 #footer {
+    height: 100%;
     justify-content: flex-end;
-    padding: 8px;
+    max-height: 100%;
+    max-width: 100%;
+    max-width: 100%;
+    padding-top: 48px;
 }
 
 #github-logo {
+    filter: invert(3%);
     height: 33px;
+    margin: 0;
     max-height: 33px;
     max-width: 32px;
+    padding-bottom: 16px;
+    padding-left: 0px;
+    padding-right: 16px;
+    padding-top: 0px;
     width: 32px;
 }
