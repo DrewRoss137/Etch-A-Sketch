@@ -5,8 +5,8 @@ html {
 }
 
 body {
-    background: radial-gradient(circle, rgb(75, 75, 75) 0%, rgb(0, 0, 0) 100%);
-    color: rgb(255, 255, 255);
+    background: radial-gradient(circle, rgba(75, 75, 75) 0%, rgba(0, 0, 0) 100%);
+    color: rgba(255, 255, 255);
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
@@ -33,7 +33,7 @@ h1 {
     font-size: 72px;
     margin: 0;
     padding: 0;
-    text-shadow: 0px 4px 4px rgb(0, 0, 0), 0px 8px 8px rgb(0, 0, 0), 0px 12px 12px rgb(0, 0, 0);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0), 0px 8px 8px rgba(0, 0, 0), 0px 12px 12px rgba(0, 0, 0);
 }
 
 h1,
@@ -53,21 +53,39 @@ h1,
 }
 
 #etch-a-sketch-container {
-    border-color: rgb(255, 255, 255);
+    border-color: rgba(255, 255, 255);
     border-style: solid;
-    border-width: 5px;
-    box-shadow: 0px 5px 10px rgb(0, 0, 0), 0px 5px 20px rgb(0, 0, 0), 0px 5px 30px rgb(0, 0, 0), 0px 5px 40px rgb(0, 0, 0);
+    border-width: 1px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0), 0px 5px 20px rgba(0, 0, 0), 0px 5px 30px rgba(0, 0, 0), 0px 5px 40px rgba(0, 0, 0);
+    display: grid;
+    grid-template-columns: repeat(16, calc(900px / 16));
+    grid-template-rows: repeat(16, calc(900px / 16));
     height: 900px;
     max-height: 900px;
     max-width: 900px;
     width: 900px;
 }
 
+#square {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255);
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    height: calc(900px / 16);
+    width: calc(900px / 16);
+  }
+
+#square:hover {
+    background-color: rgba(0, 0, 0);
+}
+  
+
 #colour-wheel {
     background: none;
     border: none;
     border-radius: 50%;
-    box-shadow: 0px 2px 5px rgb(0, 0, 0), 0px 2px 10px rgb(0, 0, 0), 0px 2px 15px rgb(0, 0, 0), 0px 2px 20px rgb(0, 0, 0);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0), 0px 2px 10px rgba(0, 0, 0), 0px 2px 15px rgba(0, 0, 0), 0px 2px 20px rgba(0, 0, 0);
     height: 60px;
     margin: 0;
     padding: 0;
@@ -105,13 +123,13 @@ button {
     border-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     border-width: 2.5px;
-    box-shadow: 0px 2px 5px rgb(0, 0, 0), 0px 2px 10px rgb(0, 0, 0), 0px 2px 15px rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0), 0px 2px 10px rgba(0, 0, 0), 0px 2px 15px rgba(0, 0, 0);
+    color: rgba(255, 255, 255);
     cursor: pointer;
     font-size: 20px;
     font-weight: bolder;
     height: 60px;
-    text-shadow: 0px 2px 2px rgb(0, 0, 0), 0px 4px 4px rgb(0, 0, 0), 0px 5px 5px rgb(0, 0, 0);
+    text-shadow: 0px 2px 2px rgba(0, 0, 0), 0px 4px 4px rgba(0, 0, 0), 0px 5px 5px rgba(0, 0, 0);
     width: 300px;
 }
 
