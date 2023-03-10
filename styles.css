@@ -1,19 +1,16 @@
-/* Global */
-
 html {
     scroll-behavior: smooth;
 }
 
-body,
-button {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+body {
+    background: radial-gradient(circle, #4b4b4b, rgba(0, 0, 0, 1));
 }
 
-body {
-    background: radial-gradient(circle, rgba(75, 75, 75) 0%, rgba(0, 0, 0) 100%);
-    color: rgba(255, 255, 255);
-    margin: 0;
-    padding: 0;
+body,
+button,
+input {
+    color: rgba(255, 255, 255, 1);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 html,
@@ -25,19 +22,33 @@ main {
     width: 100%;
 }
 
-#header {
+body,
+#header,
+h1,
+#grid-size-input,
+#colour-input,
+button,
+#github-logo {
     margin: 0;
-    padding-bottom: 48px;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 32px;
+}
+
+body,
+h1,
+#grid-size-input,
+#colour-input,
+#colour-input::-webkit-color-swatch-wrapper,
+button,
+#github-logo {
+    padding: 0;
+}
+
+#header {
+    padding: 32px;
 }
 
 h1 {
     font-size: 72px;
-    margin: 0;
-    padding: 0;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0), 0px 0px 6px rgba(0, 0, 0), 0px 0px 8px rgba(0, 0, 0), 0px 0px 10px rgba(0, 0, 0), 0px 0px 12px rgba(0, 0, 0);
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 1), 0px 0px 12px rgba(0, 0, 0, 1), 0px 0px 18px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 24px rgba(0, 0, 0, 1);
 }
 
 h1,
@@ -49,30 +60,31 @@ h1,
     justify-content: center;
 }
 
-/* Body */
-
 #body {
     flex-direction: column;
     gap: 48px;
 }
 
+#container,
+#square {
+    border-color: rgba(255, 255, 255, 1);
+}
+
 #container {
-    border-color: rgba(255, 255, 255);
     border-style: solid;
     border-width: 1px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0), 0px 5px 20px rgba(0, 0, 0), 0px 5px 30px rgba(0, 0, 0), 0px 5px 40px rgba(0, 0, 0);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 20px rgba(0, 0, 0, 1), 0px 0px 30px rgba(0, 0, 0, 1), 0px 0px 40px rgba(0, 0, 0, 1), 0px 0px 50px rgba(0, 0, 0, 1);
     display: grid;
     grid-template-columns: repeat(16, calc(900px / 16));
     grid-template-rows: repeat(16, calc(900px / 16));
-    height: 960;
-    max-height: 960;
-    max-width: 960;
-    width: 960;
+    height: 960px;
+    max-height: 960px;
+    max-width: 960px;
+    width: 960px;
 }
 
 #square {
     background-color: transparent;
-    border-color: rgba(255, 255, 255);
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
@@ -81,35 +93,33 @@ h1,
 }
 
 #square:hover {
-    background-color: rgba(0, 0, 0);
+    background-color: rgba(0, 0, 0, 1);
 }
-  
 
 #colour-input {
     background: none;
-    border: none;
     border-radius: 50%;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0), 0px 2px 10px rgba(0, 0, 0), 0px 2px 15px rgba(0, 0, 0), 0px 2px 20px rgba(0, 0, 0);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 15px rgba(0, 0, 0, 1);
     height: 60px;
-    margin: 0;
-    padding: 0;
     width: 60px;
 }
 
+#colour-input,
 #colour-input::-webkit-color-swatch {
-    border: none;
-    border-radius: 50%;
-}
-  
-#colour-input::-webkit-color-swatch-wrapper {
-    padding: 0;
+    border: none
 }
 
+#colour-input::-webkit-color-swatch {
+    border-radius: 50%;
+}
+
+#grid-size-input:hover,
 #colour-input:hover,
 button:hover {
     transform: scale(1.05);
 }
 
+#grid-size-input:focus,
 #colour-input:focus,
 #colour-button:focus,
 #rainbow-button:focus,
@@ -117,23 +127,39 @@ button:hover {
     transform: scale(1.1);
 }
 
+#grid-size-input,
 #colour-input,
 button {
     transition: transform 1s;
 }
-  
+
+#colour-input,
 button {
+    cursor: pointer;
+}
+
+#grid-size-input {
+    box-sizing: content-box;
+    height: 56px;
+    max-height: 56px;
+    max-width: 280px;
+    padding-right: 16px;
+    width: 296px;
+}
+
+button,
+#grid-size-input {
     background: transparent;
     border-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    border-width: 2.5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0), 0px 2px 10px rgba(0, 0, 0), 0px 2px 15px rgba(0, 0, 0);
-    color: rgba(255, 255, 255);
-    cursor: pointer;
+    border-style: solid; 
+    border-width: 2px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 15px rgba(0, 0, 0, 1);
     font-size: 20px;
     font-weight: bolder;
     height: 60px;
-    text-shadow: 0px 2px 2px rgba(0, 0, 0), 0px 4px 4px rgba(0, 0, 0), 0px 5px 5px rgba(0, 0, 0);
+    text-align: center;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1), 0px 0px 5px rgba(0, 0, 0, 1);
     width: 300px;
 }
 
@@ -149,7 +175,6 @@ button {
 #github-logo {
     filter: invert(3%);
     height: 33px;
-    margin: 0;
     max-height: 33px;
     max-width: 32px;
     padding-bottom: 16px;
@@ -157,4 +182,8 @@ button {
     padding-right: 16px;
     padding-top: 0px;
     width: 32px;
+}
+
+#grid-size-input:focus {
+    outline: none;
 }
