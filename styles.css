@@ -13,13 +13,17 @@ main {
 
 body {
     background: radial-gradient(circle, #4b4b4b, rgba(0, 0, 0, 1));
+}
+
+#body {
     flex-direction: column;
     gap: 48px;
 }
 
 body,
-button,
-input {
+input,
+::placeholder,
+button {
     color: rgba(255, 255, 255, 1);
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
@@ -28,6 +32,8 @@ body,
 #header,
 h1,
 #grid-size-input,
+#grid-size-input::-webkit-inner-spin-button,
+#grid-size-input::-webkit-outer-spin-button,
 #colour-input,
 button,
 #github-logo {
@@ -101,8 +107,8 @@ h1,
     box-sizing: content-box;
     height: 56px;
     max-height: 56px;
-    max-width: 280px;
-    padding-right: 16px;
+    max-width: 296px;
+    -moz-appearance: textfield;
     width: 296px;
 }
 
@@ -144,6 +150,11 @@ button:hover {
 #colour-input,
 button {
     transition: transform 1s;
+}
+
+#grid-size-input::-webkit-inner-spin-button,
+#grid-size-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
 }
 
 #colour-input {
