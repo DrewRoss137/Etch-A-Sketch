@@ -2,17 +2,6 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    background: radial-gradient(circle, #4b4b4b, rgba(0, 0, 0, 1));
-}
-
-body,
-button,
-input {
-    color: rgba(255, 255, 255, 1);
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-}
-
 html,
 body,
 main {
@@ -20,6 +9,19 @@ main {
     max-height: 100%;
     max-width: 100%;
     width: 100%;
+}
+
+body {
+    background: radial-gradient(circle, #4b4b4b, rgba(0, 0, 0, 1));
+    flex-direction: column;
+    gap: 48px;
+}
+
+body,
+button,
+input {
+    color: rgba(255, 255, 255, 1);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 body,
@@ -60,11 +62,6 @@ h1,
     justify-content: center;
 }
 
-#body {
-    flex-direction: column;
-    gap: 48px;
-}
-
 #container,
 #square {
     border-color: rgba(255, 255, 255, 1);
@@ -96,6 +93,59 @@ h1,
     background-color: rgba(0, 0, 0, 1);
 }
 
+#settings {
+    gap: 32px;
+}
+
+#grid-size-input {
+    box-sizing: content-box;
+    height: 56px;
+    max-height: 56px;
+    max-width: 280px;
+    padding-right: 16px;
+    width: 296px;
+}
+
+#grid-size-input,
+button {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border-style: solid; 
+    border-width: 2px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 15px rgba(0, 0, 0, 1);
+    font-size: 20px;
+    font-weight: bolder;
+    height: 60px;
+    text-align: center;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1), 0px 0px 5px rgba(0, 0, 0, 1);
+    width: 300px;
+}
+
+#grid-size-input:hover,
+#colour-input:hover,
+button:hover {
+    transform: scale(1.05);
+}
+
+#grid-size-input:focus {
+    outline: none;
+}
+
+#grid-size-input:focus,
+#colour-input:focus,
+#colour-button:focus,
+#rainbow-button:focus,
+#rubber-button:focus {
+    transform: scale(1.1);
+}
+
+#grid-size-input,
+#colour-input,
+button {
+    transition: transform 1s;
+}
+
 #colour-input {
     background: none;
     border-radius: 50%;
@@ -113,58 +163,9 @@ h1,
     border-radius: 50%;
 }
 
-#grid-size-input:hover,
-#colour-input:hover,
-button:hover {
-    transform: scale(1.05);
-}
-
-#grid-size-input:focus,
-#colour-input:focus,
-#colour-button:focus,
-#rainbow-button:focus,
-#rubber-button:focus {
-    transform: scale(1.1);
-}
-
-#grid-size-input,
-#colour-input,
-button {
-    transition: transform 1s;
-}
-
 #colour-input,
 button {
     cursor: pointer;
-}
-
-#grid-size-input {
-    box-sizing: content-box;
-    height: 56px;
-    max-height: 56px;
-    max-width: 280px;
-    padding-right: 16px;
-    width: 296px;
-}
-
-button,
-#grid-size-input {
-    background: transparent;
-    border-color: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    border-style: solid; 
-    border-width: 2px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 15px rgba(0, 0, 0, 1);
-    font-size: 20px;
-    font-weight: bolder;
-    height: 60px;
-    text-align: center;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1), 0px 0px 5px rgba(0, 0, 0, 1);
-    width: 300px;
-}
-
-#settings {
-    gap: 32px;
 }
 
 #footer {
@@ -182,8 +183,4 @@ button,
     padding-right: 16px;
     padding-top: 0px;
     width: 32px;
-}
-
-#grid-size-input:focus {
-    outline: none;
 }
