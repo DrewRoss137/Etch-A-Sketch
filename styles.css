@@ -113,6 +113,7 @@ h1,
 }
 
 #grid-size-input,
+#invalid-input-message,
 button {
     background: transparent;
     border-color: rgba(255, 255, 255, 0.1);
@@ -155,6 +156,19 @@ button {
 #grid-size-input::-webkit-inner-spin-button,
 #grid-size-input::-webkit-outer-spin-button {
     -webkit-appearance: none;
+}
+
+#invalid-input-message {
+    left: 10px;
+    opacity: 0;
+    padding-bottom: 25px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    transition: opacity 0.5s ease-in-out;
 }
 
 #colour-input {
