@@ -61,23 +61,34 @@ generateGrid(16);
 function generateGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, calc(960px / ${size}))`;
   container.style.gridTemplateRows = `repeat(${size}, calc(960px / ${size}))`;
-   rubberButtonClicked = false;
+
+  let rubberButtonClicked = false;
   rubberButton.addEventListener("focus", () => {
     rubberButtonClicked = true;
   });
   rubberButton.addEventListener("blur", () => {
     rubberButtonClicked = false;
   });
+
+  let colourButtonClicked = false;
+  colourButton.addEventListener("focus", () => {
+    colourButtonClicked = true;
+  });
+  colourButton.addEventListener("blur", () => {
+    colourButtonClicked = false;
+  });
+
   for (let columns = 0; columns < size; columns++) {
     for (let rows = 0; rows < size; rows++) {
       const square = document.createElement("div");
       square.id = "square";
       square.style.borderStyle = "solid";
       container.appendChild(square);
+
       square.addEventListener("mouseover", () => {
         if (rubberButtonClicked) {
           square.style.backgroundColor = "";
-        } else {
+        } else if (colourButtonClicked) {
           square.style.backgroundColor = "black";
         }
       });
@@ -93,6 +104,7 @@ function generateGrid(size) {
       }
     });
   });
+
   clearButton.addEventListener("click", () => {
     const squares = document.querySelectorAll("#square");
     squares.forEach((square) => {
@@ -100,6 +112,7 @@ function generateGrid(size) {
     });
   });
 }
+
 
 function removeGrid() {
   const squares = document.querySelectorAll("#square");
