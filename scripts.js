@@ -63,8 +63,12 @@ function generateGrid(size) {
   let rubberMode = false;
   let colourMode = false;
 
-  rubberButton.addEventListener("click", () => {
-    rubberMode = !rubberMode;
+  rubberButton.addEventListener("focus", () => {
+    rubberMode = true;
+  });
+
+  rubberButton.addEventListener("blur", () => {
+    rubberMode = false;
   });
 
   colourButton.addEventListener("click", () => {
@@ -149,6 +153,7 @@ function generateGrid(size) {
     });
   });
 }
+
 
 
 
