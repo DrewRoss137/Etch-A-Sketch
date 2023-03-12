@@ -32,7 +32,6 @@ gridSizeInput.addEventListener("input", (event) => {
   generateGrid(gridSizeInputValue);
 });
 
-
 const invalidInputMessage = document.createElement("div");
 invalidInputMessage.id = "invalid-input-message";
 invalidInputMessage.textContent = "Invalid Grid Size. Please Enter A Number Between 1 And 64."
@@ -56,27 +55,17 @@ clearButton.addEventListener("click", () => {
   });
 });
 
-generateGrid(16);
+const squares = [];
+
+let colourMode;
+let rainbowMode;
+let rubberMode;
+
 function generateGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, calc(960px / ${size}))`;
   container.style.gridTemplateRows = `repeat(${size}, calc(960px / ${size}))`;
 
-  let rubberMode = false;
-  let colourMode = false;
-
-  rubberButton.addEventListener("focus", () => {
-    rubberMode = true;
-  });
-
-  rubberButton.addEventListener("blur", () => {
-    rubberMode = false;
-  });
-
-  colourButton.addEventListener("click", () => {
-    colourMode = true;
-  });
-
-  colourInput.addEventListener("input", () => {
+  colourInput.addEventListener("blur", () => {
     if (!colourMode) return;
   });
 
@@ -84,7 +73,7 @@ function generateGrid(size) {
     if (!colourMode) return;
   });
 
-  colourInput.addEventListener("blur", () => {
+  colourInput.addEventListener("input", () => {
     if (!colourMode) return;
   });
 
@@ -92,31 +81,24 @@ function generateGrid(size) {
     colourMode = false;
   });
 
+  colourButton.addEventListener("click", () => {
+    colourMode = true;
+  });
+
+  rainbowButton.addEventListener("blur", () => {
+    rainbowMode = false;
+  });
+
   rainbowButton.addEventListener("focus", () => {
-    let rainbowMode = true;
+    rainbowMode = true;
+  });
 
-    const squares = document.querySelectorAll("#square");
+  rubberButton.addEventListener("blur", () => {
+    rubberMode = false;
+  });
 
-    const getRandomRGBA = () => {
-      const r = Math.floor(Math.random() * 256);
-      const g = Math.floor(Math.random() * 256);
-      const b = Math.floor(Math.random() * 256);
-      const a = Math.random();
-
-      return `rgba(${r}, ${g}, ${b}, ${a})`;
-    };
-
-    squares.forEach((square) => {
-      square.addEventListener("mouseover", () => {
-        if (rainbowMode) {
-          square.style.backgroundColor = getRandomRGBA();
-        }
-      });
-    });
-
-    rainbowButton.addEventListener("blur", () => {
-      rainbowMode = false;
-    });
+  rubberButton.addEventListener("focus", () => {
+    rubberMode = true;
   });
 
   for (let columns = 0; columns < size; columns++) {
@@ -124,20 +106,30 @@ function generateGrid(size) {
       const square = document.createElement("div");
       square.id = "square";
       square.style.borderStyle = "solid";
+      const generateRGBA = () => {
+        const randomRed = Math.floor(Math.random() * 256);
+        const randomGreen = Math.floor(Math.random() * 256);
+        const randomBlue = Math.floor(Math.random() * 256);
+        const randomAlpha = Math.random();
+        return `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${randomAlpha})`;
+      };
       container.appendChild(square);
-
-      square.addEventListener("mouseover", () => {
-        if (rubberMode) {
-          square.style.backgroundColor = "";
-        } else if (colourMode) {
-          square.style.backgroundColor = colourInput.value;
-        }
-      });
+      squares.push(square);
+      squares.forEach((square) => {
+        square.addEventListener("mouseover", () => {
+          if (rubberMode) {
+            square.style.backgroundColor = "";
+          } else if (colourMode) {
+            square.style.backgroundColor = colourInput.value;
+          } else if (rainbowMode) {
+            square.style.backgroundColor = generateRGBA();
+          }
+        });
+      })
     }
   }
 
   gridButton.addEventListener("click", () => {
-    const squares = document.querySelectorAll("#square");
     squares.forEach((square) => {
       if (square.style.borderStyle === "solid") {
         square.style.borderStyle = "none";
@@ -148,18 +140,14 @@ function generateGrid(size) {
   });
 
   clearButton.addEventListener("click", () => {
-    const squares = document.querySelectorAll("#square");
     squares.forEach((square) => {
       square.style.backgroundColor = "";
     });
   });
-}
-
-
-
+};
+generateGrid(16);
 
 function removeGrid() {
-  const squares = document.querySelectorAll("#square");
   squares.forEach((square) => {
     square.remove();
   });
