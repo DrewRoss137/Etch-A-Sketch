@@ -62,14 +62,9 @@ function generateGrid(size) {
 
   let rubberMode = false;
   let colourMode = false;
-  let rainbowMode = false;
 
-  rubberButton.addEventListener("focus", () => {
-    rubberMode = true;
-  });
-
-  rubberButton.addEventListener("blur", () => {
-    rubberMode = false;
+  rubberButton.addEventListener("click", () => {
+    rubberMode = !rubberMode;
   });
 
   colourButton.addEventListener("click", () => {
@@ -77,15 +72,15 @@ function generateGrid(size) {
   });
 
   colourInput.addEventListener("input", () => {
-    colourMode = true;
+    if (!colourMode) return;
   });
 
   colourInput.addEventListener("change", () => {
-    colourMode = true;
+    if (!colourMode) return;
   });
 
   colourInput.addEventListener("blur", () => {
-    colourMode = false;
+    if (!colourMode) return;
   });
 
   colourButton.addEventListener("blur", () => {
@@ -93,11 +88,30 @@ function generateGrid(size) {
   });
 
   rainbowButton.addEventListener("focus", () => {
-    rainbowMode = true;
-  });
+    let rainbowMode = true;
 
-  rainbowButton.addEventListener("blur", () => {
-    rainbowMode = false;
+    const squares = document.querySelectorAll("#square");
+
+    const getRandomRGBA = () => {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      const a = Math.random();
+
+      return `rgba(${r}, ${g}, ${b}, ${a})`;
+    };
+
+    squares.forEach((square) => {
+      square.addEventListener("mouseover", () => {
+        if (rainbowMode) {
+          square.style.backgroundColor = getRandomRGBA();
+        }
+      });
+    });
+
+    rainbowButton.addEventListener("blur", () => {
+      rainbowMode = false;
+    });
   });
 
   for (let columns = 0; columns < size; columns++) {
@@ -112,8 +126,6 @@ function generateGrid(size) {
           square.style.backgroundColor = "";
         } else if (colourMode) {
           square.style.backgroundColor = colourInput.value;
-        } else if (rainbowMode) {
-          square.style.backgroundColor = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 1)`;
         }
       });
     }
@@ -137,6 +149,7 @@ function generateGrid(size) {
     });
   });
 }
+
 
 
 function removeGrid() {
