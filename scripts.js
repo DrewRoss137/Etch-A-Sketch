@@ -3,12 +3,15 @@ const body = document.getElementById("body");
 const container = document.getElementById("container");
 
 const gridSizeInput = document.getElementById("grid-size-input");
+
 gridSizeInput.addEventListener("blur", () => {
   gridSizeInput.setAttribute("placeholder", "Grid Size");
 });
+
 gridSizeInput.addEventListener("focus", () => {
   gridSizeInput.removeAttribute("placeholder");
 });
+
 gridSizeInput.addEventListener("input", () => {
   const gridSizeInputValue = parseInt(gridSizeInput.value);
   if (gridSizeInputValue <= 0 || gridSizeInputValue > 100 || isNaN(gridSizeInputValue)) {
@@ -41,10 +44,16 @@ const rainbowButton = document.getElementById("rainbow-button");
 
 const gridButton = document.getElementById("grid-button");
 
-
 const rubberButton = document.getElementById("rubber-button");
 
 const clearButton = document.getElementById("clear-button");
+
+clearButton.addEventListener("click", () => {
+  const squares = document.querySelectorAll("#square");
+  squares.forEach((square) => {
+    square.style.backgroundColor = "";
+  });
+});
 
 generateGrid(16);
 
@@ -77,5 +86,3 @@ function removeGrid() {
     square.remove();
   });
 };
-
-
