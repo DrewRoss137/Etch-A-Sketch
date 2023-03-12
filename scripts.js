@@ -55,27 +55,36 @@ clearButton.addEventListener("click", () => {
   });
 });
 
-let rubberButtonClicked;
-
 generateGrid(16);
 function generateGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, calc(960px / ${size}))`;
   container.style.gridTemplateRows = `repeat(${size}, calc(960px / ${size}))`;
 
-  let rubberButtonClicked = false;
-  rubberButton.addEventListener("focus", () => {
-    rubberButtonClicked = true;
-  });
-  rubberButton.addEventListener("blur", () => {
-    rubberButtonClicked = false;
+  let rubberMode = false;
+  let colourMode = false;
+
+  rubberButton.addEventListener("click", () => {
+    rubberMode = !rubberMode;
   });
 
-  let colourButtonClicked = false;
-  colourButton.addEventListener("focus", () => {
-    colourButtonClicked = true;
+  colourButton.addEventListener("click", () => {
+    colourMode = true;
   });
+
+  colourInput.addEventListener("input", () => {
+    colourMode = true;
+  });
+
+  colourInput.addEventListener("change", () => {
+    colourMode = true;
+  });
+
+  colourInput.addEventListener("blur", () => {
+    colourMode = false;
+  });
+
   colourButton.addEventListener("blur", () => {
-    colourButtonClicked = false;
+    colourMode = false;
   });
 
   for (let columns = 0; columns < size; columns++) {
@@ -86,14 +95,15 @@ function generateGrid(size) {
       container.appendChild(square);
 
       square.addEventListener("mouseover", () => {
-        if (rubberButtonClicked) {
+        if (rubberMode) {
           square.style.backgroundColor = "";
-        } else if (colourButtonClicked) {
-          square.style.backgroundColor = "black";
+        } else if (colourMode) {
+          square.style.backgroundColor = colourInput.value;
         }
       });
     }
   }
+
   gridButton.addEventListener("click", () => {
     const squares = document.querySelectorAll("#square");
     squares.forEach((square) => {
@@ -112,7 +122,6 @@ function generateGrid(size) {
     });
   });
 }
-
 
 function removeGrid() {
   const squares = document.querySelectorAll("#square");
