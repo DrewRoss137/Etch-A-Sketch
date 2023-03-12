@@ -62,6 +62,7 @@ h1 {
 h1,
 #body,
 #settings,
+#invalid-input-message,
 #footer {
     align-items: center;
     display: flex;
@@ -88,7 +89,6 @@ h1,
 
 #square {
     background-color: transparent;
-    border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
     height: calc(100% / var(--grid-size));
@@ -108,8 +108,18 @@ h1,
     height: 56px;
     max-height: 56px;
     max-width: 296px;
-    -moz-appearance: textfield;
     width: 296px;
+}
+
+#grid-size-input,
+button {
+    width: 300px;
+}
+
+#grid-size-input,
+#invalid-input-message,
+button {
+    height: 60px;
 }
 
 #grid-size-input,
@@ -123,10 +133,8 @@ button {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 15px rgba(0, 0, 0, 1);
     font-size: 20px;
     font-weight: bolder;
-    height: 60px;
     text-align: center;
     text-shadow: 0px 0px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1), 0px 0px 5px rgba(0, 0, 0, 1);
-    width: 300px;
 }
 
 #grid-size-input:hover,
@@ -161,14 +169,12 @@ button {
 #invalid-input-message {
     left: 10px;
     opacity: 0;
-    padding-bottom: 25px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 16px;
+    padding: 16px;
     position: absolute;
     text-align: center;
     top: 10px;
     transition: opacity 0.5s ease-in-out;
+    width: 550px;
 }
 
 #colour-input {
