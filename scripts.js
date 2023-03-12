@@ -59,52 +59,66 @@ generateGrid(16);
 function generateGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, calc(960px / ${size}))`;
   container.style.gridTemplateRows = `repeat(${size}, calc(960px / ${size}))`;
-  let rubberButtonActive = false;
+
+  let rubberMode = false;
+  let colourMode = false;
+  let rainbowMode = false;
+
   rubberButton.addEventListener("focus", () => {
-    rubberButtonActive = true;
+    rubberMode = true;
   });
+
   rubberButton.addEventListener("blur", () => {
-    rubberButtonActive = false;
+    rubberMode = false;
   });
-  let colourButtonActive = false;
-  let currentColour = "black";
-  colourButton.addEventListener("focus", () => {
-    colourButtonActive = true;
+
+  colourButton.addEventListener("click", () => {
+    colourMode = true;
   });
-  colourButton.addEventListener("blur", () => {
-    colourButtonActive = false;
+
+  colourInput.addEventListener("input", () => {
+    colourMode = true;
   });
+
   colourInput.addEventListener("change", () => {
-    currentColour = colourInput.value;
+    colourMode = true;
   });
-  let rainbowButtonActive = false;
+
+  colourInput.addEventListener("blur", () => {
+    colourMode = false;
+  });
+
+  colourButton.addEventListener("blur", () => {
+    colourMode = false;
+  });
+
   rainbowButton.addEventListener("focus", () => {
-    rainbowButtonActive = true;
+    rainbowMode = true;
   });
+
   rainbowButton.addEventListener("blur", () => {
-    rainbowButtonActive = false;
+    rainbowMode = false;
   });
+
   for (let columns = 0; columns < size; columns++) {
     for (let rows = 0; rows < size; rows++) {
       const square = document.createElement("div");
       square.id = "square";
       square.style.borderStyle = "solid";
       container.appendChild(square);
+
       square.addEventListener("mouseover", () => {
-        if (rubberButtonActive) {
+        if (rubberMode) {
           square.style.backgroundColor = "";
-        } else if (colourButtonActive) {
-          square.style.backgroundColor = currentColour;
-        } else if (rainbowButtonActive) {
-          const red = Math.floor(Math.random() * 256);
-          const green = Math.floor(Math.random() * 256);
-          const blue = Math.floor(Math.random() * 256);
-          const alpha = Math.random();
-          square.style.backgroundColor = `rgba(${red},${green},${blue},${alpha})`;
+        } else if (colourMode) {
+          square.style.backgroundColor = colourInput.value;
+        } else if (rainbowMode) {
+          square.style.backgroundColor = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 1)`;
         }
       });
     }
   }
+
   gridButton.addEventListener("click", () => {
     const squares = document.querySelectorAll("#square");
     squares.forEach((square) => {
@@ -115,6 +129,7 @@ function generateGrid(size) {
       }
     });
   });
+
   clearButton.addEventListener("click", () => {
     const squares = document.querySelectorAll("#square");
     squares.forEach((square) => {
@@ -122,6 +137,7 @@ function generateGrid(size) {
     });
   });
 }
+
 
 function removeGrid() {
   const squares = document.querySelectorAll("#square");
