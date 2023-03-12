@@ -12,9 +12,9 @@ gridSizeInput.addEventListener("focus", () => {
   gridSizeInput.removeAttribute("placeholder");
 });
 
-gridSizeInput.addEventListener("input", () => {
-  const gridSizeInputValue = parseInt(gridSizeInput.value);
-  if (gridSizeInputValue <= 0 || gridSizeInputValue > 100 || isNaN(gridSizeInputValue)) {
+gridSizeInput.addEventListener("input", (event) => {
+  const gridSizeInputValue = gridSizeInput.value;
+  if ((gridSizeInputValue <= 0 || gridSizeInputValue > 64 || isNaN(gridSizeInputValue)) && event.data !== null) {
     body.appendChild(invalidInputMessage);
     setTimeout(() => {
       invalidInputMessage.style.opacity = 1;
@@ -32,9 +32,10 @@ gridSizeInput.addEventListener("input", () => {
   generateGrid(gridSizeInputValue);
 });
 
+
 const invalidInputMessage = document.createElement("div");
 invalidInputMessage.id = "invalid-input-message";
-invalidInputMessage.textContent = "Invalid Grid Size. Please Enter A Number Between 1 And 100."
+invalidInputMessage.textContent = "Invalid Grid Size. Please Enter A Number Between 1 And 64."
 
 const colourInput = document.getElementById("colour-input");
 
