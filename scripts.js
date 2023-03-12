@@ -55,30 +55,51 @@ clearButton.addEventListener("click", () => {
   });
 });
 
-generateGrid(16);
+let rubberButtonClicked;
 
+generateGrid(16);
 function generateGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, calc(960px / ${size}))`;
   container.style.gridTemplateRows = `repeat(${size}, calc(960px / ${size}))`;
+   rubberButtonClicked = false;
+  rubberButton.addEventListener("focus", () => {
+    rubberButtonClicked = true;
+  });
+  rubberButton.addEventListener("blur", () => {
+    rubberButtonClicked = false;
+  });
   for (let columns = 0; columns < size; columns++) {
     for (let rows = 0; rows < size; rows++) {
       const square = document.createElement("div");
       square.id = "square";
       square.style.borderStyle = "solid";
+      container.appendChild(square);
       square.addEventListener("mouseover", () => {
-        square.style.backgroundColor = "black";
-      });
-      gridButton.addEventListener("click", () => {
-        if (square.style.borderStyle === "solid") {
-          square.style.borderStyle = "none";
+        if (rubberButtonClicked) {
+          square.style.backgroundColor = "";
         } else {
-          square.style.borderStyle = "solid";
+          square.style.backgroundColor = "black";
         }
       });
-      container.appendChild(square);
     }
   }
-};
+  gridButton.addEventListener("click", () => {
+    const squares = document.querySelectorAll("#square");
+    squares.forEach((square) => {
+      if (square.style.borderStyle === "solid") {
+        square.style.borderStyle = "none";
+      } else {
+        square.style.borderStyle = "solid";
+      }
+    });
+  });
+  clearButton.addEventListener("click", () => {
+    const squares = document.querySelectorAll("#square");
+    squares.forEach((square) => {
+      square.style.backgroundColor = "";
+    });
+  });
+}
 
 function removeGrid() {
   const squares = document.querySelectorAll("#square");
