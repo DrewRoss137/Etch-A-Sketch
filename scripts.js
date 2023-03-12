@@ -3,19 +3,16 @@ const body = document.getElementById("body");
 const container = document.getElementById("container");
 
 const gridSizeInput = document.getElementById("grid-size-input");
-
 gridSizeInput.addEventListener("blur", () => {
   gridSizeInput.setAttribute("placeholder", "Grid Size");
 });
-
 gridSizeInput.addEventListener("focus", () => {
   gridSizeInput.removeAttribute("placeholder");
 });
-
 gridSizeInput.addEventListener("input", () => {
   const gridSizeInputValue = parseInt(gridSizeInput.value);
   if (gridSizeInputValue <= 0 || gridSizeInputValue > 100 || isNaN(gridSizeInputValue)) {
-    body.insertBefore(invalidInputMessage, body.firstChild);
+    body.appendChild(invalidInputMessage);
     setTimeout(() => {
       invalidInputMessage.style.opacity = 1;
     }, 10);
@@ -34,7 +31,7 @@ gridSizeInput.addEventListener("input", () => {
 
 const invalidInputMessage = document.createElement("div");
 invalidInputMessage.id = "invalid-input-message";
-invalidInputMessage.textContent = "Invalid Grid Size Input. Please Enter A Number Between 1 And 100."
+invalidInputMessage.textContent = "Invalid Grid Size. Please Enter A Number Between 1 And 100."
 
 const colourInput = document.getElementById("colour-input");
 
@@ -43,6 +40,7 @@ const colourButton = document.getElementById("colour-button");
 const rainbowButton = document.getElementById("rainbow-button");
 
 const gridButton = document.getElementById("grid-button");
+
 
 const rubberButton = document.getElementById("rubber-button");
 
@@ -57,9 +55,16 @@ function generateGrid(size) {
     for (let rows = 0; rows < size; rows++) {
       const square = document.createElement("div");
       square.id = "square";
-      square.style.backgroundColor = "transparent";
+      square.style.borderStyle = "solid";
       square.addEventListener("mouseover", () => {
         square.style.backgroundColor = "black";
+      });
+      gridButton.addEventListener("click", () => {
+        if (square.style.borderStyle === "solid") {
+          square.style.borderStyle = "none";
+        } else {
+          square.style.borderStyle = "solid";
+        }
       });
       container.appendChild(square);
     }
@@ -72,3 +77,5 @@ function removeGrid() {
     square.remove();
   });
 };
+
+
