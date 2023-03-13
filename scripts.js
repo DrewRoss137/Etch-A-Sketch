@@ -44,7 +44,6 @@ colourInput.addEventListener("input", () => {
   if (!colourMode) return;
 });
 
-
 const colourButton = document.getElementById("colour-button");
 colourButton.addEventListener("blur", () => {
   colourMode = false;
