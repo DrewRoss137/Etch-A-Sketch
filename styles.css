@@ -35,8 +35,7 @@ h1,
 #grid-dimensions-input::-webkit-inner-spin-button,
 #grid-dimensions-input::-webkit-outer-spin-button,
 #colour-input,
-button,
-#github-logo {
+button {
   margin: 0;
 }
 
@@ -45,8 +44,7 @@ h1,
 #grid-dimensions-input,
 #colour-input,
 #colour-input::-webkit-color-swatch-wrapper,
-button,
-#github-logo {
+button {
   padding: 0;
 }
 
@@ -64,8 +62,7 @@ h1 {
 h1,
 #body,
 #settings,
-#invalid-input-message,
-#footer {
+#invalid-input-message {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -193,26 +190,4 @@ button {
 #colour-input,
 button {
   cursor: pointer;
-}
-
-#footer {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-  
-#github-logo {
-  filter: invert(3%);
-  height: 33px;
-  padding-top: 0px;
-  margin-left: auto;
-  max-height: 33px;
-  max-width: 32px;
-  padding-bottom: 8px;
-  padding-left: 0px;
-  padding-right: 8px;
-  width: 32px;
 }
