@@ -64,6 +64,21 @@ let rubberMode;
 function generateGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, calc(960px / ${size}))`;
   container.style.gridTemplateRows = `repeat(${size}, calc(960px / ${size}))`;
+  for (let columns = 0; columns < size; columns++) {
+    for (let rows = 0; rows < size; rows++) {
+      const square = document.createElement("div");
+      square.id = "square";
+      square.style.borderStyle = "solid";
+      container.appendChild(square);
+      squares.push(square);
+    };
+  };
+};
+
+generateGrid(16);
+
+function awd(size) {
+
 
   colourInput.addEventListener("blur", () => {
     if (!colourMode) return;
@@ -101,11 +116,7 @@ function generateGrid(size) {
     rubberMode = true;
   });
 
-  for (let columns = 0; columns < size; columns++) {
-    for (let rows = 0; rows < size; rows++) {
-      const square = document.createElement("div");
-      square.id = "square";
-      square.style.borderStyle = "solid";
+
       const generateRGBA = () => {
         const randomRed = Math.floor(Math.random() * 256);
         const randomGreen = Math.floor(Math.random() * 256);
@@ -113,8 +124,7 @@ function generateGrid(size) {
         const randomAlpha = Math.random();
         return `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${randomAlpha})`;
       };
-      container.appendChild(square);
-      squares.push(square);
+
       squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
           if (rubberMode) {
@@ -126,8 +136,7 @@ function generateGrid(size) {
           }
         });
       })
-    }
-  }
+    
 
   gridButton.addEventListener("click", () => {
     squares.forEach((square) => {
@@ -145,7 +154,7 @@ function generateGrid(size) {
     });
   });
 };
-generateGrid(16);
+
 
 function removeGrid() {
   squares.forEach((square) => {
