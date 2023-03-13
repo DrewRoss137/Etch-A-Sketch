@@ -1,62 +1,64 @@
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 html,
 body,
 main {
-    height: 100%;
-    max-height: 100%;
-    max-width: 100%;
-    width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
 }
 
 body {
-    background: radial-gradient(circle, #4b4b4b, rgba(0, 0, 0, 1));
+  background: radial-gradient(circle, #4b4b4b, rgba(0, 0, 0, 1));
 }
 
 #body {
-    flex-direction: column;
-    gap: 48px;
+  flex-direction: column;
+  gap: 48px;
 }
 
 body,
 input,
 ::placeholder,
 button {
-    color: rgba(255, 255, 255, 1);
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 1);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 body,
 #header,
 h1,
-#grid-size-input,
-#grid-size-input::-webkit-inner-spin-button,
-#grid-size-input::-webkit-outer-spin-button,
+#grid-dimensions-input,
+#grid-dimensions-input::-webkit-inner-spin-button,
+#grid-dimensions-input::-webkit-outer-spin-button,
 #colour-input,
 button,
 #github-logo {
-    margin: 0;
+  margin: 0;
 }
 
 body,
 h1,
-#grid-size-input,
+#grid-dimensions-input,
 #colour-input,
 #colour-input::-webkit-color-swatch-wrapper,
 button,
 #github-logo {
-    padding: 0;
+  padding: 0;
 }
 
 #header {
-    padding: 32px;
+  padding: 32px;
 }
 
 h1 {
-    font-size: 72px;
-    text-shadow: 0px 0px 6px rgba(0, 0, 0, 1), 0px 0px 12px rgba(0, 0, 0, 1), 0px 0px 18px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 24px rgba(0, 0, 0, 1);
+  font-size: 72px;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1), 0px 0px 12px rgba(0, 0, 0, 1),
+    0px 0px 18px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1),
+    0px 0px 24px rgba(0, 0, 0, 1);
 }
 
 h1,
@@ -64,154 +66,151 @@ h1,
 #settings,
 #invalid-input-message,
 #footer {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 #container,
 #square {
-    border-color: rgba(255, 255, 255, 1);
+  border-color: rgba(255, 255, 255, 1);
 }
 
 #container {
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 20px rgba(0, 0, 0, 1), 0px 0px 30px rgba(0, 0, 0, 1), 0px 0px 40px rgba(0, 0, 0, 1), 0px 0px 50px rgba(0, 0, 0, 1);
-    display: grid;
-    grid-template-columns: repeat(16, calc(900px / 16));
-    grid-template-rows: repeat(16, calc(900px / 16));
-    height: 960px;
-    max-height: 960px;
-    max-width: 960px;
-    width: 960px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 20px rgba(0, 0, 0, 1),
+    0px 0px 30px rgba(0, 0, 0, 1), 0px 0px 40px rgba(0, 0, 0, 1),
+    0px 0px 50px rgba(0, 0, 0, 1);
+  display: grid;
+  grid-template-columns: repeat(16, calc(900px / 16));
+  grid-template-rows: repeat(16, calc(900px / 16));
+  height: 960px;
+  max-height: 960px;
+  max-width: 960px;
+  width: 960px;
 }
 
 #square {
-    background-color: transparent;
-    border-width: 1px;
-    box-sizing: border-box;
-    height: calc(100% / var(--grid-size));
-    width: calc(100% / var(--grid-size));
-}
-
-#square:hover {
-    background-color: rgba(0, 0, 0, 1);
+  background-color: transparent;
+  border-width: 1px;
+  box-sizing: border-box;
+  height: calc(100% / var(--grid-size));
+  width: calc(100% / var(--grid-size));
 }
 
 #settings {
-    gap: 32px;
+  gap: 32px;
 }
 
-#grid-size-input {
-    box-sizing: content-box;
-    height: 56px;
-    max-height: 56px;
-    max-width: 296px;
-    width: 296px;
+#grid-dimensions-input {
+  box-sizing: content-box;
+  height: 56px;
+  max-height: 56px;
+  max-width: 296px;
+  width: 296px;
 }
 
-#grid-size-input,
+#grid-dimensions-input,
 button {
-    width: 300px;
+  width: 300px;
 }
 
-#grid-size-input,
+#grid-dimensions-input,
 #invalid-input-message,
 button {
-    height: 60px;
+  height: 60px;
 }
 
-#grid-size-input,
+#grid-dimensions-input,
 #invalid-input-message,
 button {
-    background: transparent;
-    border-color: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    border-style: solid; 
-    border-width: 2px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 15px rgba(0, 0, 0, 1);
-    font-size: 20px;
-    font-weight: bolder;
-    text-align: center;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1), 0px 0px 5px rgba(0, 0, 0, 1);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1),
+    0px 0px 15px rgba(0, 0, 0, 1);
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1),
+    0px 0px 5px rgba(0, 0, 0, 1);
 }
 
-#grid-size-input:hover,
+#grid-dimensions-input:hover,
 #colour-input:hover,
 button:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-#grid-size-input:focus {
-    outline: none;
+#grid-dimensions-input:focus {
+  outline: none;
 }
 
-#grid-size-input:focus,
-#colour-input:focus,
-#colour-button:focus,
-#rainbow-button:focus,
-#rubber-button:focus {
-    transform: scale(1.1);
+#grid-dimensions-input:focus {
+  transform: scale(1.1);
 }
 
-#grid-size-input,
+#grid-dimensions-input,
 #colour-input,
 button {
-    transition: transform 1s;
+  transition: transform 1s;
 }
 
-#grid-size-input::-webkit-inner-spin-button,
-#grid-size-input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+#grid-dimensions-input::-webkit-inner-spin-button,
+#grid-dimensions-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 #invalid-input-message {
-    left: 10px;
-    opacity: 0;
-    padding: 16px;
-    position: absolute;
-    text-align: center;
-    top: 10px;
-    transition: opacity 0.5s ease-in-out;
-    width: 550px;
+  left: 10px;
+  opacity: 0;
+  padding: 16px;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  transition: opacity 0.5s ease-in-out;
+  width: 550px;
 }
 
 #colour-input {
-    background: none;
-    border-radius: 50%;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 15px rgba(0, 0, 0, 1);
-    height: 60px;
-    width: 60px;
+  background: none;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1),
+    0px 0px 15px rgba(0, 0, 0, 1);
+  height: 60px;
+  width: 60px;
 }
 
 #colour-input,
 #colour-input::-webkit-color-swatch {
-    border: none
+  border: none;
 }
 
 #colour-input::-webkit-color-swatch {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 #colour-input,
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #footer {
-    justify-content: flex-end;
-    width: 100%;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 #github-logo {
-    filter: invert(3%);
-    height: 33px;
-    max-height: 33px;
-    max-width: 32px;
-    padding-bottom: 16px;
-    padding-left: 0px;
-    padding-right: 16px;
-    padding-top: 0px;
-    width: 32px;
+  filter: invert(3%);
+  height: 33px;
+  max-height: 33px;
+  max-width: 32px;
+  padding-bottom: 16px;
+  padding-left: 0px;
+  padding-right: 16px;
+  padding-top: 0px;
+  width: 32px;
 }
