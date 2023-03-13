@@ -62,7 +62,8 @@ h1 {
 h1,
 #body,
 #settings,
-#invalid-input-message {
+#invalid-input-message,
+#footer {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -190,4 +191,21 @@ button {
 #colour-input,
 button {
   cursor: pointer;
+}
+
+#footer {
+  justify-content: flex-end;
+  width: 100%;
+}
+
+#github-logo {
+  filter: invert(3%);
+  height: 33px;
+  max-height: 33px;
+  max-width: 32px;
+  padding-bottom: 16px;
+  padding-left: 0px;
+  padding-right: 16px;
+  padding-top: 0px;
+  width: 32px;
 }
