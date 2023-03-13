@@ -2,16 +2,23 @@ const body = document.getElementById("body");
 
 const container = document.getElementById("container");
 
-const gridSizeInput = document.getElementById("grid-size-input");
-gridSizeInput.addEventListener("blur", () => {
-  gridSizeInput.setAttribute("placeholder", "Grid Size");
+const squares = [];
+
+const gridDimensionsInput = document.getElementById("grid-dimensions-input");
+gridDimensionsInput.addEventListener("blur", () => {
+  gridDimensionsInput.setAttribute("placeholder", "Grid Size");
 });
-gridSizeInput.addEventListener("focus", () => {
-  gridSizeInput.removeAttribute("placeholder");
+gridDimensionsInput.addEventListener("focus", () => {
+  gridDimensionsInput.removeAttribute("placeholder");
 });
-gridSizeInput.addEventListener("input", (event) => {
-  const gridSizeInputValue = gridSizeInput.value;
-  if ((gridSizeInputValue <= 0 || gridSizeInputValue > 64 || isNaN(gridSizeInputValue)) && event.data !== null) {
+gridDimensionsInput.addEventListener("input", (event) => {
+  const gridDimensionsInputValue = gridDimensionsInput.value;
+  if (
+    (gridDimensionsInputValue <= 0 ||
+      gridDimensionsInputValue > 64 ||
+      isNaN(gridDimensionsInputValue)) &&
+    event.data !== null
+  ) {
     body.appendChild(invalidInputMessage);
     setTimeout(() => {
       invalidInputMessage.style.opacity = 1;
@@ -22,78 +29,34 @@ gridSizeInput.addEventListener("input", (event) => {
         body.removeChild(invalidInputMessage);
       }, 500);
     }, 3000);
-    gridSizeInput.value = "";
+    gridDimensionsInput.value = "";
     return;
   }
   removeGrid();
-  generateGrid(gridSizeInputValue);
+  generateGrid(gridDimensionsInputValue);
 });
 
 const invalidInputMessage = document.createElement("div");
 invalidInputMessage.id = "invalid-input-message";
-invalidInputMessage.textContent = "Invalid Grid Size. Please Enter A Number Between 1 And 64."
+invalidInputMessage.textContent =
+  "Invalid Grid Size. Please Enter A Number Between 1 And 64.";
 
 const colourInput = document.getElementById("colour-input");
-colourInput.addEventListener("blur", () => {
-  if (!colourMode) return;
-});
-colourInput.addEventListener("change", () => {
-  if (!colourMode) return;
-});
-colourInput.addEventListener("input", () => {
-  if (!colourMode) return;
-});
 
 const colourButton = document.getElementById("colour-button");
-colourButton.addEventListener("blur", () => {
-  colourMode = false;
-});
-colourButton.addEventListener("click", () => {
-  colourMode = true;
-});
+colourButton.onclick = () => enableStyle("colour");
 
 const rainbowButton = document.getElementById("rainbow-button");
-rainbowButton.addEventListener("blur", () => {
-  rainbowMode = false;
-});
-rainbowButton.addEventListener("focus", () => {
-  rainbowMode = true;
-});
+rainbowButton.onclick = () => enableStyle("rainbow");
 
-const gridButton = document.getElementById("grid-button");
-gridButton.addEventListener("click", () => {
-  squares.forEach((square) => {
-    if (square.style.borderStyle === "solid") {
-      square.style.borderStyle = "none";
-    } else {
-      square.style.borderStyle = "solid";
-    }
-  });
-});
+const toggleGridButton = document.getElementById("toggle-grid-button");
+toggleGridButton.onclick = () => toggleGrid();
 
 const rubberButton = document.getElementById("rubber-button");
-rubberButton.addEventListener("blur", () => {
-  rubberMode = false;
-});
-rubberButton.addEventListener("focus", () => {
-  rubberMode = true;
-});
+rubberButton.onclick = () => enableStyle("rubber");
 
-const clearButton = document.getElementById("clear-button");
-clearButton.addEventListener("click", () => {
-  const squares = document.querySelectorAll("#square");
-  squares.forEach((square) => {
-    square.style.backgroundColor = "";
-  });
-});
-
-const squares = [];
-
-let colourMode;
-let rainbowMode;
-let rubberMode;
-
-generateGrid(16);
+const clearGridButton = document.getElementById("clear-grid-button");
+clearGridButton.onclick = () => clearGrid();
 
 function generateGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, calc(960px / ${size}))`;
@@ -105,30 +68,29 @@ function generateGrid(size) {
       square.style.borderStyle = "solid";
       container.appendChild(square);
       squares.push(square);
-    };
-  };
-};
+    }
+  }
+}
 
 function removeGrid() {
   squares.forEach((square) => {
     square.remove();
   });
-};
+}
 
-function styleSquares() {
+function enableStyle(mode) {
   squares.forEach((square) => {
     square.addEventListener("mouseover", () => {
-      if (rubberMode) {
-        square.style.backgroundColor = "";
-      } else if (colourMode) {
+      if (mode === "colour") {
         square.style.backgroundColor = colourInput.value;
-      } else if (rainbowMode) {
+      } else if (mode === "rainbow") {
         square.style.backgroundColor = generateRGBA();
+      } else if (mode === "rubber") {
+        square.style.backgroundColor = "";
       }
     });
-  })
-};
-styleSquares();
+  });
+}
 
 function generateRGBA() {
   const randomRed = Math.floor(Math.random() * 256);
@@ -136,4 +98,23 @@ function generateRGBA() {
   const randomBlue = Math.floor(Math.random() * 256);
   const randomAlpha = Math.random();
   return `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${randomAlpha})`;
-};
+}
+
+function toggleGrid() {
+  squares.forEach((square) => {
+    if (square.style.borderStyle === "solid") {
+      square.style.borderStyle = "none";
+    } else {
+      square.style.borderStyle = "solid";
+    }
+  });
+}
+
+function clearGrid() {
+  const squares = document.querySelectorAll("#square");
+  squares.forEach((square) => {
+    square.style.backgroundColor = "";
+  });
+}
+
+generateGrid(16);
