@@ -57,8 +57,8 @@ button,
 h1 {
   font-size: 72px;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 1), 0px 0px 12px rgba(0, 0, 0, 1),
-    0px 0px 18px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1),
-    0px 0px 24px rgba(0, 0, 0, 1);
+  0px 0px 18px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1),
+  0px 0px 24px rgba(0, 0, 0, 1);
 }
 
 h1,
@@ -80,8 +80,8 @@ h1,
   border-style: solid;
   border-width: 1px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 20px rgba(0, 0, 0, 1),
-    0px 0px 30px rgba(0, 0, 0, 1), 0px 0px 40px rgba(0, 0, 0, 1),
-    0px 0px 50px rgba(0, 0, 0, 1);
+  0px 0px 30px rgba(0, 0, 0, 1), 0px 0px 40px rgba(0, 0, 0, 1),
+  0px 0px 50px rgba(0, 0, 0, 1);
   display: grid;
   grid-template-columns: repeat(16, calc(900px / 16));
   grid-template-rows: repeat(16, calc(900px / 16));
@@ -131,12 +131,12 @@ button {
   border-style: solid;
   border-width: 2px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1),
-    0px 0px 15px rgba(0, 0, 0, 1);
+  0px 0px 15px rgba(0, 0, 0, 1);
   font-size: 20px;
   font-weight: bolder;
   text-align: center;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1),
-    0px 0px 5px rgba(0, 0, 0, 1);
+  0px 0px 5px rgba(0, 0, 0, 1);
 }
 
 #grid-dimensions-input:hover,
@@ -147,9 +147,6 @@ button:hover {
 
 #grid-dimensions-input:focus {
   outline: none;
-}
-
-#grid-dimensions-input:focus {
   transform: scale(1.1);
 }
 
@@ -179,7 +176,7 @@ button {
   background: none;
   border-radius: 50%;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1),
-    0px 0px 15px rgba(0, 0, 0, 1);
+  0px 0px 15px rgba(0, 0, 0, 1);
   height: 60px;
   width: 60px;
 }
@@ -199,6 +196,8 @@ button {
 }
 
 #footer {
+  bottom: 0.26837%;
+  position: absolute;
   justify-content: flex-end;
   width: 100%;
 }
@@ -208,9 +207,9 @@ button {
   height: 33px;
   max-height: 33px;
   max-width: 32px;
-  padding-bottom: 16px;
+  padding-bottom: 8px;
   padding-left: 0px;
-  padding-right: 16px;
+  padding-right: 8px;
   padding-top: 0px;
   width: 32px;
 }
