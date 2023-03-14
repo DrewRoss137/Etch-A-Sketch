@@ -59,8 +59,8 @@ const clearGridButton = document.getElementById("clear-grid-button");
 clearGridButton.onclick = () => clearGrid();
 
 function generateGrid(size) {
-  container.style.gridTemplateColumns = `repeat(${size}, calc(800px / ${size}))`;
-  container.style.gridTemplateRows = `repeat(${size}, calc(800px / ${size}))`;
+  container.style.gridTemplateColumns = `repeat(${size}, calc(670px / ${size}))`;
+  container.style.gridTemplateRows = `repeat(${size}, calc(670px / ${size}))`;
   for (let columns = 0; columns < size; columns++) {
     for (let rows = 0; rows < size; rows++) {
       const square = document.createElement("div");
