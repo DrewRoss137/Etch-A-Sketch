@@ -192,8 +192,10 @@ button {
 }
 
 footer {
+  bottom: 0;
+  left: 0;
+  position: fixed;
   justify-content: flex-end;
-  position: relative;
   width: 100%;
 }
 
