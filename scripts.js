@@ -58,9 +58,11 @@ rubberButton.onclick = () => enableStyle("rubber");
 const clearGridButton = document.getElementById("clear-grid-button");
 clearGridButton.onclick = () => clearGrid();
 
+generateGrid(16);
+
 function generateGrid(size) {
-  container.style.gridTemplateColumns = `repeat(${size}, calc(670px / ${size}))`;
-  container.style.gridTemplateRows = `repeat(${size}, calc(670px / ${size}))`;
+  container.style.gridTemplateColumns = `repeat(${size}, calc(615px / ${size}))`;
+  container.style.gridTemplateRows = `repeat(${size}, calc(615px / ${size}))`;
   for (let columns = 0; columns < size; columns++) {
     for (let rows = 0; rows < size; rows++) {
       const square = document.createElement("div");
@@ -116,5 +118,3 @@ function clearGrid() {
     square.style.backgroundColor = "";
   });
 };
-
-generateGrid(16);
