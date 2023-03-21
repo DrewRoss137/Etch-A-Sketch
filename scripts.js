@@ -1,6 +1,6 @@
 const body = document.getElementById("body");
 
-const container = document.getElementById("container");
+const grid = document.getElementById("grid");
 
 const squares = [];
 
@@ -61,14 +61,14 @@ clearGridButton.onclick = () => clearGrid();
 generateGrid(16);
 
 function generateGrid(size) {
-  container.style.gridTemplateColumns = `repeat(${size}, calc(615px / ${size}))`;
-  container.style.gridTemplateRows = `repeat(${size}, calc(615px / ${size}))`;
+  grid.style.gridTemplateColumns = `repeat(${size}, calc(615px / ${size}))`;
+  grid.style.gridTemplateRows = `repeat(${size}, calc(615px / ${size}))`;
   for (let columns = 0; columns < size; columns++) {
     for (let rows = 0; rows < size; rows++) {
       const square = document.createElement("div");
       square.id = "square";
       square.style.borderStyle = "solid";
-      container.appendChild(square);
+      grid.appendChild(square);
       squares.push(square);
     };
   };
