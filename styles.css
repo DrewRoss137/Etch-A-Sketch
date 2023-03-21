@@ -13,7 +13,7 @@ body {
   background: radial-gradient(circle, #4b4b4b, rgba(0, 0, 0, 1));
 }
 
-#body {
+#container {
   flex-direction: column;
   gap: 48px;
 }
@@ -60,7 +60,7 @@ h1 {
 }
 
 h1,
-#body,
+#container,
 #settings,
 #invalid-input-message,
 footer {
@@ -69,12 +69,12 @@ footer {
   justify-content: center;
 }
 
-#container,
+#grid,
 #square {
   border-color: rgba(255, 255, 255, 1);
 }
 
-#container {
+#grid {
   border-style: solid;
   border-width: 1px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 1),
