@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head id="head">
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"/>
-        <link rel="stylesheet" href="styles.css">
+<html class="html" id="html" lang="en">
+    <head class="head" id="head">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link href="styles.css" rel="stylesheet">
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <title>Etch-A-Sketch</title>
     </head>
-    <body id="body">
-        <main id="main">
-            <header id="header">
-                <h1 id="header-text">Etch-A-Sketch</h1>
+    <body class="body" id="body">
+        <main class="main" id="main">
+            <header class="header" id="header">
+                <h1 class="header-text" id="header-text">Etch-A-Sketch</h1>
             </header>
-            <div id="body">
-                <div id="container"></div>
-                <div id="settings">
-                    <input id="grid-dimensions-input" max="100" min="1" placeholder="Grid Dimensions" type="number"></input>
-                    <input id="colour-input" type="color"></input>
-                    <button id="colour-button">Colour</button>
-                    <button id="rainbow-button">Rainbow</button>
-                    <button id="toggle-grid-button">Toggle Grid</button>
-                    <button id="rubber-button">Rubber</button>
-                    <button id="clear-grid-button">Clear Grid</button>
+            <div class="container" id="container">
+                <div class="grid" id="grid"></div>
+                <div class="settings" id="settings">
+                    <input class="grid-dimensions-input" id="grid-dimensions-input" max="100" min="1" placeholder="Grid Dimensions" type="number"></input>
+                    <input class="colour-input" id="colour-input" type="color"></input>
+                    <button class="colour-button" id="colour-button">Colour</button>
+                    <button class="rainbow-button" id="rainbow-button">Rainbow</button>
+                    <button class="toggle-grid" id="toggle-grid-button">Toggle Grid</button>
+                    <button class="rubber-button" id="rubber-button">Rubber</button>
+                    <button class="clear-grid-button" id="clear-grid-button">Clear Grid</button>
                 </div>
             </div>
-            <footer id="footer">
-                <a href="https://github.com/DrewRoss137" id="github-logo" rel="noopener" target="_blank">
-                    <img src="github-logo.svg" alt="GitHub Logo" id="github-logo">
+            <footer class="footer" id="footer">
+                <a class="github-logo" href="https://github.com/DrewRoss137" id="github-logo" rel="noopener" target="_blank">
+                    <img alt="GitHub Logo" class="github-logo-svg" id="github-logo-svg" src="github-logo.svg">
                 </a>
             </footer>
         </main>
