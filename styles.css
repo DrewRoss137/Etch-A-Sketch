@@ -52,11 +52,9 @@ button {
 
 h1 {
   font-size: 72px;
-  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1),
-  0px 0px 12px rgba(0, 0, 0, 1),
-  0px 0px 18px rgba(0, 0, 0, 1),
-  0px 0px 24px rgba(0, 0, 0, 1),
-  0px 0px 30px rgba(0, 0, 0, 1);
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1), 0px 0px 12px rgba(0, 0, 0, 1),
+    0px 0px 18px rgba(0, 0, 0, 1), 0px 0px 24px rgba(0, 0, 0, 1),
+    0px 0px 30px rgba(0, 0, 0, 1);
 }
 
 h1,
@@ -77,8 +75,7 @@ footer {
 #grid {
   border-style: solid;
   border-width: 1px;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 1),
-  0px 5px 5px rgba(0, 0, 0, 1);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 1), 0px 5px 5px rgba(0, 0, 0, 1);
   display: grid;
   height: 615px;
   width: 615px;
@@ -123,15 +120,13 @@ button {
   border-radius: 20px;
   border-style: solid;
   border-width: 2.5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1),
-  0px 0px 10px rgba(0, 0, 0, 1),
-  0px 0px 15px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1),
+    0px 0px 15px rgba(0, 0, 0, 1);
   font-size: 20px;
   font-weight: bolder;
   text-align: center;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 1),
-  0px 0px 4px rgba(0, 0, 0, 1),
-  0px 0px 5px rgba(0, 0, 0, 1);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 1),
+    0px 0px 5px rgba(0, 0, 0, 1);
 }
 
 #grid-dimensions-input:hover,
@@ -170,9 +165,8 @@ button {
 #colour-input {
   background: none;
   border-radius: 50%;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1),
-  0px 0px 10px rgba(0, 0, 0, 1),
-  0px 0px 15px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1),
+    0px 0px 15px rgba(0, 0, 0, 1);
   height: 60px;
   width: 60px;
 }

@@ -70,15 +70,15 @@ function generateGrid(size) {
       square.style.borderStyle = "solid";
       grid.appendChild(square);
       squares.push(square);
-    };
-  };
-};
+    }
+  }
+}
 
 function removeGrid() {
   squares.forEach((square) => {
     square.remove();
   });
-};
+}
 
 function enableStyle(mode) {
   squares.forEach((square) => {
@@ -89,10 +89,10 @@ function enableStyle(mode) {
         square.style.backgroundColor = generateRGBA();
       } else if (mode === "rubber") {
         square.style.backgroundColor = "";
-      };
+      }
     });
   });
-};
+}
 
 function generateRGBA() {
   const randomRed = Math.floor(Math.random() * 256);
@@ -100,7 +100,7 @@ function generateRGBA() {
   const randomBlue = Math.floor(Math.random() * 256);
   const randomAlpha = Math.random();
   return `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${randomAlpha})`;
-};
+}
 
 function toggleGrid() {
   squares.forEach((square) => {
@@ -108,13 +108,13 @@ function toggleGrid() {
       square.style.borderStyle = "none";
     } else {
       square.style.borderStyle = "solid";
-    };
+    }
   });
-};
+}
 
 function clearGrid() {
   const squares = document.querySelectorAll("#square");
   squares.forEach((square) => {
     square.style.backgroundColor = "";
   });
-};
+}
