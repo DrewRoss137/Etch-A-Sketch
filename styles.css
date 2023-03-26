@@ -10,7 +10,7 @@ main {
 }
 
 body {
-  background: radial-gradient(circle, #4b4b4b, rgba(0, 0, 0, 1));
+  background: radial-gradient(circle, rgba(75, 75, 75, 1), rgba(0, 0, 0, 1));
 }
 
 #container {
