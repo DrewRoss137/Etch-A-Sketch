@@ -2,9 +2,33 @@ const body = document.getElementById("body");
 
 const grid = document.getElementById("grid");
 
+const gridDimensionsInput = document.getElementById("grid-dimensions-input");
+
+const invalidInputMessage = document.createElement("div");
+invalidInputMessage.classList.add("invalid-input-message");
+invalidInputMessage.id = "invalid-input-message";
+invalidInputMessage.textContent =
+  "Invalid Grid Size. Please Enter A Number Between 1 And 64.";
+
+const colourInput = document.getElementById("colour-input");
+
+const colourButton = document.getElementById("colour-button");
+colourButton.onclick = () => enableStyle("colour");
+
+const rainbowButton = document.getElementById("rainbow-button");
+rainbowButton.onclick = () => enableStyle("rainbow");
+
+const toggleGridButton = document.getElementById("toggle-grid-button");
+toggleGridButton.onclick = () => toggleGrid();
+
+const rubberButton = document.getElementById("rubber-button");
+rubberButton.onclick = () => enableStyle("rubber");
+
+const clearGridButton = document.getElementById("clear-grid-button");
+clearGridButton.onclick = () => clearGrid();
+
 const squares = [];
 
-const gridDimensionsInput = document.getElementById("grid-dimensions-input");
 gridDimensionsInput.addEventListener("blur", () => {
   gridDimensionsInput.setAttribute("placeholder", "Grid Dimensions");
 });
@@ -35,28 +59,6 @@ gridDimensionsInput.addEventListener("input", (event) => {
   removeGrid();
   generateGrid(gridDimensionsInputValue);
 });
-
-const invalidInputMessage = document.createElement("div");
-invalidInputMessage.id = "invalid-input-message";
-invalidInputMessage.textContent =
-  "Invalid Grid Size. Please Enter A Number Between 1 And 64.";
-
-const colourInput = document.getElementById("colour-input");
-
-const colourButton = document.getElementById("colour-button");
-colourButton.onclick = () => enableStyle("colour");
-
-const rainbowButton = document.getElementById("rainbow-button");
-rainbowButton.onclick = () => enableStyle("rainbow");
-
-const toggleGridButton = document.getElementById("toggle-grid-button");
-toggleGridButton.onclick = () => toggleGrid();
-
-const rubberButton = document.getElementById("rubber-button");
-rubberButton.onclick = () => enableStyle("rubber");
-
-const clearGridButton = document.getElementById("clear-grid-button");
-clearGridButton.onclick = () => clearGrid();
 
 generateGrid(16);
 
